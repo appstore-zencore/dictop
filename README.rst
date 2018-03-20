@@ -1,6 +1,9 @@
 dictop
 ======
 
+.. image:: https://travis-ci.org/appstore-zencore/dictop.svg?branch=master
+    :target: https://travis-ci.org/appstore-zencore/dictop
+
 DICT-OPERATION allow you select data value from a dict-instance with dot separated path, and update.
 
 Install

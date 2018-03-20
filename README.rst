@@ -1,0 +1,36 @@
+dictop
+======
+
+DICT-OPERATION allow you select data value from a dict-instance with dot separated path, and update.
+
+Install
+-------
+
+::
+
+    pip install dictop
+
+
+Usage
+-----
+
+::
+
+    from dictop import update
+    from dictop import select
+
+    data = {}
+    update(data, "a.b.c", 2)
+    assert select(data, "a.b.c") == 2
+
+Core Functions
+--------------
+
+1. select
+
+        select(target, path, default=None, slient=True)
+
+2. update
+
+        update(target, path, value)
+

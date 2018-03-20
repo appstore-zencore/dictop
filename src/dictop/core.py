@@ -32,5 +32,47 @@ def select(target, path, default=None, slient=True):
             return default()
     return node
 
-def update(data, path, value):
-    pass
+
+def listpad(thelist, length, fill=None):
+    pad = length - len(thelist)
+    if pad > 0:
+        for _ in range(pad):
+            thelist.append(fill)
+    return thelist
+
+def update(target, path, value):
+    """Update item in path of target with given value.
+    """
+    names = path.split(".")
+    names_length = len(names)
+    node = target
+    for index in range(names_length):
+        name = names[index]
+        if index == names_length - 1:
+            last = True
+        else:
+            last = False
+        if isinstance(node, dict):
+            if last:
+                node[name] = value
+                return
+            else:
+                if not name in node:
+                    node[name] = {}
+                node = node[name]
+        elif isinstance(node, list):
+            name = int(name)
+            listpad(node, name+1)
+            if last:
+                node[name] = value
+                return
+            else:
+                node[name] = {}
+                node = node[name]
+        else:
+            if last:
+                setattr(node, name, value)
+            else:
+                setattr(node, name, {})
+                node = getattr(node, name)
+     

@@ -12,7 +12,7 @@ requires = [
 
 setup(
     name="dictop",
-    version="0.1.0",
+    version="0.1.1",
     description="DICT-OPERATION allow you select data value from a dict-instance with dot separated path, and update.",
     long_description=long_description,
     url="https://github.com/appstore-zencore/dictop",

@@ -6,6 +6,13 @@ dictop
 
 DICT-OPERATION allow you select data value from a dict-instance with dot separated path, and update.
 
+
+Required Python Version
+-----------------------
+
+- python 2.7
+- python 3.6
+
 Install
 -------
 

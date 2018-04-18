@@ -13,8 +13,8 @@ class TestDictop(unittest.TestCase):
         }
         value = select(data, "a.b")
         assert value == "a.b"
-        with self.assertRaises(KeyError):
-            select(data, "b", slient=False)
+        self.assertRaises(KeyError, lambda:select(data, "b", slient=False))
+            
 
     def test02(self):
         data = {
@@ -31,8 +31,8 @@ class TestDictop(unittest.TestCase):
                 "b": "a.b",
             }
         }
-        with self.assertRaises(KeyError):
-            select(data, "a.b.c", slient=False)
+        self.assertRaises(KeyError, lambda:select(data, "a.b.c", slient=False)):
+            
 
     def test04(self):
         data = [{
@@ -41,8 +41,8 @@ class TestDictop(unittest.TestCase):
             }
         }]
         assert select(data, "0.a.b") == "0.a.b"
-        with self.assertRaises(KeyError):
-            select(data, "1", slient=False)
+        self.assertRaises(KeyError, lambda:select(data, "1", slient=False))
+            
 
     def test05(self):
         class DATA(object):

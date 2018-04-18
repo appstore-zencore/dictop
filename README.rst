@@ -32,9 +32,13 @@ Core Functions
 
 1. select
 
-        select(target, path, default=None, slient=True)
+::
+
+    select(target, path, default=None, slient=True)
 
 2. update
 
-        update(target, path, value)
+::
+
+    update(target, path, value)
 

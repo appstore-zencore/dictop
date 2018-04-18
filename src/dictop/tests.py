@@ -1,3 +1,4 @@
+import os
 import unittest
 from .core import select
 from .core import update
@@ -13,7 +14,11 @@ class TestDictop(unittest.TestCase):
         }
         value = select(data, "a.b")
         assert value == "a.b"
-        self.assertRaises(KeyError, lambda:select(data, "b", slient=False))
+        if os.sys.version.startswith("2.6"):
+            self.assertRaises(KeyError, lambda:select(data, "b", slient=False))
+        else:
+            with self.assertRaises(KeyError):
+                select(data, "b", slient=False)
             
 
     def test02(self):
@@ -31,7 +36,11 @@ class TestDictop(unittest.TestCase):
                 "b": "a.b",
             }
         }
-        self.assertRaises(KeyError, lambda:select(data, "a.b.c", slient=False)):
+        if os.sys.version.startswith("2.6"):
+            self.assertRaises(KeyError, lambda:select(data, "a.b.c", slient=False))
+        else:
+            with self.assertRaises(KeyError):
+                select(data, "a.b.c", slient=False)
             
 
     def test04(self):
@@ -41,8 +50,11 @@ class TestDictop(unittest.TestCase):
             }
         }]
         assert select(data, "0.a.b") == "0.a.b"
-        self.assertRaises(KeyError, lambda:select(data, "1", slient=False))
-            
+        if os.sys.version.startswith("2.6"):
+            self.assertRaises(KeyError, lambda:select(data, "1", slient=False))
+        else:
+            with self.assertRaises(KeyError):
+                select(data, "1", slient=False)
 
     def test05(self):
         class DATA(object):

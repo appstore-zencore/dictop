@@ -1,5 +1,6 @@
 from functools import partial
 
+VERSION = "0.1.4"
 
 def select(target, path, default=None, slient=True):
     """Select item with path from target. 

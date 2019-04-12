@@ -1,7 +1,7 @@
 import os
 import unittest
-from .core import select
-from .core import update
+from dictop import select
+from dictop import update
 
 
 class TestDictop(unittest.TestCase):

@@ -13,7 +13,7 @@ requires = [
 
 setup(
     name="dictop",
-    version="0.1.3",
+    version="0.1.4",
     description="DICT-OPERATION allow you select data value from a dict-instance with dot separated path, and update.",
     long_description=long_description,
     url="https://github.com/appstore-zencore/dictop",
@@ -31,6 +31,6 @@ setup(
     keywords=['dictop'],
     requires=requires,
     install_requires=requires,
-    packages=find_packages("src"),
-    package_dir={"": "src"},
+    packages=find_packages(".", exclude=["tests"]),
+    py_modules=["dictop"],
 )
